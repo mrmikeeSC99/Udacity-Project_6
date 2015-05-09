@@ -52,6 +52,8 @@ $(function () {
 
     });
 
+/* ------------------------------- */
+
     /* This is a new test suite named "The menu" */
     describe('The menu', function () {
 
@@ -79,10 +81,10 @@ $(function () {
         });
     });
 
+/* ------------------------------- */
 
     /* This is a new test suite named "Initial Entries" */
     describe('Initial Entries', function () {
-
         beforeEach(function (done) {
             loadFeed(0, function () {
                 done();
@@ -101,16 +103,41 @@ $(function () {
         });
     });
 
+/* ------------------------------- */
+
     /* This is a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function () {
+        // global placeholder for first feed content loaded
+        var firstLoadHTML = null;
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                done();
+            });
+        });
 
-        xit('loadFeed content changed', function () {
-            /* TODO: Write a test that ensures when a new feed is loaded
+        it('loadFeed first content loaded', function () {
+            /* This is a test that ensures when a new feed is loaded
              * by the loadFeed function that the content actually changes.
              * Remember, loadFeed() is asynchronous.
              */
+            firstLoadHTML = $(".feed").html();
+            expect(firstLoadHTML).toBeDefined();
+        });
+
+        /* ------------------------------------------- */
+        /* Nested describe to handle second Async call */
+        /* ------------------------------------------- */
+        describe('Second Load', function () {
+            beforeEach(function (done) {
+                loadFeed(1, function () {
+                    done();
+                });
+            });
+
+            it('loadFeed content changed', function (done) {
+                expect(firstLoadHTML).not.toBe($(".feed").html());
+                done();
+            });
         });
     });
-
-
 });
