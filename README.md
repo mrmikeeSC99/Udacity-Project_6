@@ -2,8 +2,7 @@
 
 ###Quick Install
 * [Open hosted project](http://mrmikeesc99.github.io/Udacity-Project_6/)
-
-
+* [Review spec/feedreader.js](https://github.com/mrmikeeSC99/Udacity-Project_6/blob/master/jasmine/spec/feedreader.js)
 
 -
 ####References
