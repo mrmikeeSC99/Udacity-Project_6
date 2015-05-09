@@ -108,36 +108,29 @@ $(function () {
     /* This is a new test suite named "New Feed Selection" */
     describe('New Feed Selection', function () {
         // global placeholder for first feed content loaded
-        var firstLoadHTML = null;
+        var firstLoadHTML = $(".feed").html();
+
         beforeEach(function (done) {
-            loadFeed(0, function () {
+            loadFeed(1, function () {
                 done();
             });
         });
 
-        it('loadFeed first content loaded', function () {
+        it('loadFeed first content loaded', function (done) {
+            /* This is a test that ensures our first data load was captured.
+             * Remember, loadFeed() is asynchronous.
+             */
+            expect(firstLoadHTML).toBeDefined();
+            done();
+        });
+
+        it('loadFeed content changed', function (done) {
             /* This is a test that ensures when a new feed is loaded
              * by the loadFeed function that the content actually changes.
              * Remember, loadFeed() is asynchronous.
              */
-            firstLoadHTML = $(".feed").html();
-            expect(firstLoadHTML).toBeDefined();
-        });
-
-        /* ------------------------------------------- */
-        /* Nested describe to handle second Async call */
-        /* ------------------------------------------- */
-        describe('Second Load', function () {
-            beforeEach(function (done) {
-                loadFeed(1, function () {
-                    done();
-                });
-            });
-
-            it('loadFeed content changed', function (done) {
-                expect(firstLoadHTML).not.toBe($(".feed").html());
-                done();
-            });
+            expect(firstLoadHTML).not.toBe($(".feed").html());
+            done();
         });
     });
 });
