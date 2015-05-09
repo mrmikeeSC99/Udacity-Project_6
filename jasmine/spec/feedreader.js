@@ -55,20 +55,27 @@ $(function () {
     /* This is a new test suite named "The menu" */
     describe('The menu', function () {
 
-        xit('menu is hidden', function () {
-            /* TODO: Write a test that ensures the menu element is
+        it('menu is hidden', function () {
+            /* This is a test that ensures the menu element is
              * hidden by default. You'll have to analyze the HTML and
              * the CSS to determine how we're performing the
              * hiding/showing of the menu element.
              */
+            expect($('body').attr('class')).toBe('menu-hidden');
+
         });
 
-        xit('menu visibility is changing', function () {
-             /* TODO: Write a test that ensures the menu changes
+        it('menu visibility is changing', function () {
+             /* This is a test that ensures the menu changes
               * visibility when the menu icon is clicked. This test
               * should have two expectations: does the menu display when
               * clicked and does it hide when clicked again.
               */
+              var menuIcon = $('.menu-icon-link');
+              menuIcon.click();
+              expect($('body').attr('class')).not.toBe('menu-hidden');
+              menuIcon.click();
+              expect($('body').attr('class')).toBe('menu-hidden');
         });
     });
 
@@ -76,13 +83,21 @@ $(function () {
     /* This is a new test suite named "Initial Entries" */
     describe('Initial Entries', function () {
 
-        xit('loadFeed has data', function () {
-            /* TODO: Write a test that ensures when the loadFeed
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                done();
+            });
+        });
+
+        it('loadFeed has data', function (done) {
+            /* This is a test that ensures when the loadFeed
              * function is called and completes its work, there is at least
              * a single .entry element within the .feed container.
              * Remember, loadFeed() is asynchronous so this test wil require
              * the use of Jasmine's beforeEach and asynchronous done() function.
              */
+            expect($(".entry").parents(".feed").length >= 1).toBe(true);
+            done();
         });
     });
 
