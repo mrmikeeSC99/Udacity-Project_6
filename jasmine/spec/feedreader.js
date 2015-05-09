@@ -86,9 +86,7 @@ $(function () {
     /* This is a new test suite named "Initial Entries" */
     describe('Initial Entries', function () {
         beforeEach(function (done) {
-            loadFeed(0, function () {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         it('loadFeed has data', function (done) {
@@ -98,8 +96,7 @@ $(function () {
              * Remember, loadFeed() is asynchronous so this test wil require
              * the use of Jasmine's beforeEach and asynchronous done() function.
              */
-            // expect($(".entry").parents(".feed").length >= 1).toBe(true);
-            expect($(".entry").length).toBeGreaterThan(0);
+             expect($(".entry").length).toBeGreaterThan(0);
             done();
         });
     });
