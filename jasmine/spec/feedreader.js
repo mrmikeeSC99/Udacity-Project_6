@@ -98,7 +98,8 @@ $(function () {
              * Remember, loadFeed() is asynchronous so this test wil require
              * the use of Jasmine's beforeEach and asynchronous done() function.
              */
-            expect($(".entry").parents(".feed").length >= 1).toBe(true);
+            // expect($(".entry").parents(".feed").length >= 1).toBe(true);
+            expect($(".entry").length).toBeGreaterThan(0);
             done();
         });
     });

@@ -1,4 +1,4 @@
-##Mikes Udacity FEWD Project 6 
+##Mikes Udacity FEWD Project 6
 Submission 2
 
 ###Quick Install
@@ -8,7 +8,8 @@ Submission 2
 -
 ####Change Log
 
-* Refactored describe 'New Feed Selection' to not use nested describes.
+* Refactored it('loadFeed has data') to use Jasmine's toBeGreaterThan().
+* Refactored describe('New Feed Selection') to not use nested describes.
 
 -
 ####References
