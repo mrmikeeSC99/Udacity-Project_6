@@ -7,7 +7,9 @@ Submission 2
 
 -
 ####Change Log
-* Refactored 'menu is hidden' to use Jquery.hasClass()
+* Refactored 'feeds.urls are defined' to use forEach loop.
+* Refactored 'feeds.names are defined' to use forEach loop.
+* Refactored 'menu is hidden' to use Jquery.hasClass().
 * Refactored 'Initial Entries' to simplify loadFeed.
 * Refactored it('loadFeed has data') to use Jasmine's toBeGreaterThan().
 * Refactored describe('New Feed Selection') to not use nested describes.
