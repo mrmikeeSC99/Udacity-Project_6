@@ -63,7 +63,7 @@ $(function () {
              * the CSS to determine how we're performing the
              * hiding/showing of the menu element.
              */
-            expect($('body').attr('class')).toBe('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
 
         });
 
